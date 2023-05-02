@@ -14,16 +14,26 @@ const Form = props => {
 	}
 	return (
 		<form>
-			<label htmlFor="firstName" >First Name:</label>
-			<input onChange={onChange} type="text" name="firstName" ></input>
-			<label htmlFor="lastName" >Last Name:</label>
-			<input onChange={onChange} type="text" name="lastName" ></input>
-			<label htmlFor="email" >Email:</label>
-			<input onChange={onChange} type="text" name="email" ></input>
-			<label htmlFor="password" >Password:</label>
-			<input onChange={onChange} type="text" name="password" ></input>
-			<label htmlFor="confirmPassword" >Confirm Password:</label>
-			<input onChange={onChange} type="text" name="confirmPassword" ></input>
+			<div className="form-group">
+				<label htmlFor="firstName" >First Name:</label>
+				<input onChange={onChange} type="text" name="firstName" ></input>
+			</div>
+			<div className="form-group">
+				<label htmlFor="lastName" >Last Name:</label>
+				<input onChange={onChange} type="text" name="lastName" ></input>
+			</div>	
+			<div className="form-group">
+				<label htmlFor="email" >Email:</label>
+				<input onChange={onChange} type="text" name="email" ></input>
+			</div>	
+			<div className="form-group">
+				<label htmlFor="password" >Password:</label>
+				<input onChange={onChange} type="text" name="password" ></input>
+			</div>	
+			<div className="form-group">
+				<label htmlFor="confirmPassword" >Confirm Password:</label>
+				<input onChange={onChange} type="text" name="confirmPassword" ></input>
+			</div>	
 		</form>	
 	)
 }

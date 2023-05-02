@@ -4,10 +4,19 @@ import Results from "./components/Results";
 
 
 function App() {
+  /* Set up initial input fields to prevent errors */
+  const [state, setState] = useState({
+    firstName : "",
+    lastName : "",
+    email : "",
+    password : "",
+    confirmPassword : ""
+  })
+
   return (
     <div className="App">
-      <Form />
-      <Results />
+      <Form inputs={state} />
+      <Results data={state} />
     </div>
   );
 }

@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <Form inputs={state} />
+      <Form inputs={state} setInputs={setState} />
       <Results data={state} />
     </div>
   );

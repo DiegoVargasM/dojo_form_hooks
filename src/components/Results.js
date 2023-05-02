@@ -6,6 +6,7 @@ const Results = props => {
 
 	return (
 		<div>
+			<h2>Results</h2>
 			<p>First Name: {firstName}</p>
 			<p>Last Name: {lastName}</p>
 			<p>Email: {email}</p>

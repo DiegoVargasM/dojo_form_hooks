@@ -28,11 +28,11 @@ const Form = props => {
 			</div>	
 			<div className="form-group">
 				<label htmlFor="password" >Password:</label>
-				<input onChange={onChange} type="text" name="password" ></input>
+				<input onChange={onChange} type="password" name="password" ></input>
 			</div>	
 			<div className="form-group">
 				<label htmlFor="confirmPassword" >Confirm Password:</label>
-				<input onChange={onChange} type="text" name="confirmPassword" ></input>
+				<input onChange={onChange} type="password" name="confirmPassword" ></input>
 			</div>	
 		</form>	
 	)

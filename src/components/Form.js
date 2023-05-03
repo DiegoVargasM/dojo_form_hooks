@@ -5,6 +5,7 @@ const Form = props => {
 	/* Deestructuring our props */
 	const { inputs, setInputs } = props;
 
+	// add submitted state
 	const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 
 	const onChange = e => {
@@ -15,6 +16,8 @@ const Form = props => {
 			[e.target.name]: e.target.value
 		})
 	}
+
+	//Define the function called when submitting
 	const createUser = (e) => {
         e.preventDefault();
         const newUser = { inputs };
@@ -22,6 +25,7 @@ const Form = props => {
         setHasBeenSubmitted( true );
     };
 	
+	//change message according to submit status
 	const formMessage = () => {
         if( hasBeenSubmitted ) {
 	    return "Thank you for submitting the form!";

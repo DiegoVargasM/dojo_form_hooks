@@ -8,6 +8,7 @@ const Form = props => {
 	// add submitted state
 	const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 	const [nameError, setNameError] = useState("");
+	const [lastNameError, setLastNameError] = useState("");
 
 	const onChange = e => {
 		setInputs({
@@ -19,12 +20,16 @@ const Form = props => {
 		if (e.target.name === "firstName") {
 			console.log(e.target.name);
 			if (e.target.value.length < 2) {
-				setNameError("El nombre debe tener al menos 2 caracteres")
+				setNameError("El primer nombre debe tener al menos 2 caracteres")
 			} else {
 				setNameError("")
 			}
-		} else {
-			setNameError("")
+		} else if (e.target.name === "lastName") {
+			if (e.target.value.length < 2) {
+				setLastNameError("El apellido debe tener al menos 2 caracteres")
+			} else {
+				setLastNameError("")
+			}
 		}
 	}
 
@@ -59,7 +64,12 @@ const Form = props => {
 			<div className="form-group">
 				<label htmlFor="lastName" >Last Name:</label>
 				<input onChange={onChange} type="text" name="lastName" ></input>
-			</div>	
+			</div>
+			{
+            	lastNameError ?
+                <span>{ lastNameError }</span> :
+                ''
+            }	
 			<div className="form-group">
 				<label htmlFor="email" >Email:</label>
 				<input onChange={onChange} type="text" name="email" ></input>

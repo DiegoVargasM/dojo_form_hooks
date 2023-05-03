@@ -1,0 +1,10 @@
+.form-element {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin: 20px;
+	align-items: center;
+	width: 500px;
+	height: auto;
+}
+

@@ -1,5 +1,5 @@
 import React from "react";
-
+import './form.css';
 const Form = props => {
 	/* Deestructuring our props */
 	const { inputs, setInputs } = props;
@@ -13,7 +13,7 @@ const Form = props => {
 		})
 	}
 	return (
-		<form>
+		<form className="form-element">
 			<div className="form-group">
 				<label htmlFor="firstName" >First Name:</label>
 				<input onChange={onChange} type="text" name="firstName" ></input>

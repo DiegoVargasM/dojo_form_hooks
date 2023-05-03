@@ -7,6 +7,7 @@ const Form = props => {
 
 	// add submitted state
 	const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+	const [nameError, setNameError] = useState("");
 
 	const onChange = e => {
 		setInputs({
@@ -15,24 +16,26 @@ const Form = props => {
 			/* Only change one */
 			[e.target.name]: e.target.value
 		})
+		if (e.target.name === "firstName") {
+			console.log(e.target.name);
+			if (e.target.value.length < 2) {
+				setNameError("El nombre debe tener al menos 2 caracteres")
+			} else {
+				setNameError("")
+			}
+		} else {
+			setNameError("")
+		}
 	}
 
 	//Define the function called when submitting
 	const createUser = (e) => {
-        e.preventDefault();
-        const newUser = { inputs };
-        console.log("Welcome", newUser);
+		e.preventDefault();
+		const newUser = { inputs };
+        console.log(newUser);
         setHasBeenSubmitted( true );
     };
 	
-	// replaced by ternary operator
-	/* 	const formMessage = () => {
-			if( hasBeenSubmitted ) {
-			return "Thank you for submitting the form!";
-		} else {
-			return "Welcome, please submit the form";
-		}
-		}; */
 	
 	return (
 		<div>
@@ -43,10 +46,16 @@ const Form = props => {
 				<h3>Welcome, please submit the form.</h3>
 			}
 		<form className="form-element" onSubmit={createUser}>
+			
 			<div className="form-group">
 				<label htmlFor="firstName" >First Name:</label>
 				<input onChange={onChange} type="text" name="firstName" ></input>
 			</div>
+			{
+            	nameError ?
+                <span>{ nameError }</span> :
+                ''
+            }
 			<div className="form-group">
 				<label htmlFor="lastName" >Last Name:</label>
 				<input onChange={onChange} type="text" name="lastName" ></input>

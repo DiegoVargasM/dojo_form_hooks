@@ -9,6 +9,7 @@ const Form = props => {
 	const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
 	const [nameError, setNameError] = useState("");
 	const [lastNameError, setLastNameError] = useState("");
+	const [emailError, setEmailError] = useState("");
 
 	const onChange = e => {
 		setInputs({
@@ -29,6 +30,12 @@ const Form = props => {
 				setLastNameError("El apellido debe tener al menos 2 caracteres")
 			} else {
 				setLastNameError("")
+			}
+		} else if (e.target.name === "email") {
+			if (e.target.value.length < 5) {
+				setEmailError("El correo electrónico debe tener al menos 5 caracteres")
+			} else {
+				setEmailError("")
 			}
 		}
 	}
@@ -73,7 +80,12 @@ const Form = props => {
 			<div className="form-group">
 				<label htmlFor="email" >Email:</label>
 				<input onChange={onChange} type="text" name="email" ></input>
-			</div>	
+			</div>
+			{
+            	emailError ?
+                <span>{ emailError }</span> :
+                ''
+            }	
 			<div className="form-group">
 				<label htmlFor="password" >Password:</label>
 				<input onChange={onChange} type="password" name="password" ></input>

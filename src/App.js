@@ -12,8 +12,9 @@ function App() {
     lastName : "",
     email : "",
     password : "",
-    confirmPassword : ""
+    confirmPassword: "",
   })
+
 
   return (
     <div className="App">

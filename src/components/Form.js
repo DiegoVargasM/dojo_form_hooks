@@ -23,31 +23,31 @@ const Form = props => {
 		})
 		if (e.target.name === "firstName") {
 			console.log(e.target.name);
-			if (e.target.value.length < 2) {
+			if (e.target.value.length < 2 && e.target.value !== "") {
 				setNameError("El primer nombre debe tener al menos 2 caracteres")
 			} else {
 				setNameError("")
 			}
 		} else if (e.target.name === "lastName") {
-			if (e.target.value.length < 2) {
+			if (e.target.value.length < 2 && e.target.value !== "") {
 				setLastNameError("El apellido debe tener al menos 2 caracteres")
 			} else {
 				setLastNameError("")
 			}
 		} else if (e.target.name === "email") {
-			if (e.target.value.length < 5) {
+			if (e.target.value.length < 5 && e.target.value !== "") {
 				setEmailError("El correo electrónico debe tener al menos 5 caracteres")
 			} else {
 				setEmailError("")
 			}
 		} else if (e.target.name === "password") {
-			if (e.target.value.length < 8) {
+			if (e.target.value.length < 8 && e.target.value !== "") {
 				setpassError("La contraseña debe tener 8 caracteres")
 			} else {
 				setpassError("")
 			}
 		} else if (e.target.name === "confirmPassword") {
-			if (e.target.value.length < 8) {
+			if (e.target.value.length < 8 && e.target.value !== "") {
 				setConfirmPassError("La contraseña debe tener 8 caracteres")
 			} else {
 				setConfirmPassError("")
@@ -55,7 +55,7 @@ const Form = props => {
 		}
 
 		if (e.target.name === "confirmPassword") {
-			if (e.target.value !== inputs.password) {
+			if (e.target.value !== inputs.password && e.target.value !== "") {
 				setEqualityCheck("COntraseñas no coinciden")
 			} else {
 				setEqualityCheck("")

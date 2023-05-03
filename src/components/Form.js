@@ -25,19 +25,23 @@ const Form = props => {
         setHasBeenSubmitted( true );
     };
 	
-	//change message according to submit status
-	const formMessage = () => {
-        if( hasBeenSubmitted ) {
-	    return "Thank you for submitting the form!";
-	} else {
-	    return "Welcome, please submit the form";
-	}
-	};
+	// replaced by ternary operator
+	/* 	const formMessage = () => {
+			if( hasBeenSubmitted ) {
+			return "Thank you for submitting the form!";
+		} else {
+			return "Welcome, please submit the form";
+		}
+		}; */
 	
 	return (
 		<div>
 		<h1> User Registration</h1>
-			<h3>{ formMessage()}</h3>
+			{
+				hasBeenSubmitted ?
+				<h3>Thank you for submitting the form!</h3> :
+				<h3>Welcome, please submit the form.</h3>
+			}
 		<form className="form-element" onSubmit={createUser}>
 			<div className="form-group">
 				<label htmlFor="firstName" >First Name:</label>

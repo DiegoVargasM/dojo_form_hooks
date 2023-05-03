@@ -10,6 +10,9 @@ const Form = props => {
 	const [nameError, setNameError] = useState("");
 	const [lastNameError, setLastNameError] = useState("");
 	const [emailError, setEmailError] = useState("");
+	const [passError, setpassError] = useState("");
+	const [confirmPassError, setConfirmPassError] = useState("");
+	const [equalityCheck, setEqualityCheck] = useState("");
 
 	const onChange = e => {
 		setInputs({
@@ -36,6 +39,26 @@ const Form = props => {
 				setEmailError("El correo electrónico debe tener al menos 5 caracteres")
 			} else {
 				setEmailError("")
+			}
+		} else if (e.target.name === "password") {
+			if (e.target.value.length < 8) {
+				setpassError("La contraseña debe tener 8 caracteres")
+			} else {
+				setpassError("")
+			}
+		} else if (e.target.name === "confirmPassword") {
+			if (e.target.value.length < 8) {
+				setConfirmPassError("La contraseña debe tener 8 caracteres")
+			} else {
+				setConfirmPassError("")
+			}
+		}
+
+		if (e.target.name === "confirmPassword") {
+			if (e.target.value !== inputs.password) {
+				setEqualityCheck("COntraseñas no coinciden")
+			} else {
+				setEqualityCheck("")
 			}
 		}
 	}
@@ -90,10 +113,25 @@ const Form = props => {
 				<label htmlFor="password" >Password:</label>
 				<input onChange={onChange} type="password" name="password" ></input>
 			</div>	
+			{
+            	passError ?
+                <span>{ passError }</span> :
+                ''
+            }
 			<div className="form-group">
 				<label htmlFor="confirmPassword" >Confirm Password:</label>
 				<input onChange={onChange} type="password" name="confirmPassword" ></input>
 			</div>	
+			{
+            	confirmPassError ?
+                <span>{ confirmPassError }</span> :
+                ''
+            }
+			{
+            	equalityCheck ?
+                <span>{ equalityCheck }</span> :
+                ''
+            }
 			<input type="submit" value="Create User"></input>
 		</form>	
 		</div>

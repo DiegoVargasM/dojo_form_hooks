@@ -13,6 +13,8 @@ const Form = props => {
 		})
 	}
 	return (
+		<div>
+		<h1> User Registration</h1>
 		<form className="form-element">
 			<div className="form-group">
 				<label htmlFor="firstName" >First Name:</label>
@@ -35,6 +37,8 @@ const Form = props => {
 				<input onChange={onChange} type="password" name="confirmPassword" ></input>
 			</div>	
 		</form>	
+		</div>
+			
 	)
 }
 

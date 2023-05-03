@@ -1,9 +1,14 @@
+
+
 .App {
   text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content:flex-start;
   align-items: center;
   flex-direction: column;
+  background-color: hsl(221, 23%, 43%);
+  height: 100vh;
+  gap:5%;
 }
 
 .App-logo {

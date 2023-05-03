@@ -61,81 +61,88 @@ const Form = props => {
 				setEqualityCheck("")
 			}
 		}
+		if (e.target.name === "password") {
+			if (e.target.value !== inputs.confirmPassword && e.target.value !== "") {
+				setEqualityCheck("COntraseñas no coinciden")
+			} else {
+				setEqualityCheck("")
+			}
+		}
 	}
 
 	//Define the function called when submitting
 	const createUser = (e) => {
 		e.preventDefault();
 		const newUser = { inputs };
-        console.log(newUser);
-        setHasBeenSubmitted( true );
-    };
-	
-	
+		console.log(newUser);
+		setHasBeenSubmitted(true);
+	};
+
+
 	return (
 		<div>
-		<h1> User Registration</h1>
+			<h1> User Registration</h1>
 			{
 				hasBeenSubmitted ?
-				<h3>Thank you for submitting the form!</h3> :
-				<h3>Welcome, please submit the form.</h3>
+					<h3>Thank you for submitting the form!</h3> :
+					<h3>Welcome, please submit the form.</h3>
 			}
-		<form className="form-element" onSubmit={createUser}>
-			
-			<div className="form-group">
-				<label htmlFor="firstName" >First Name:</label>
-				<input onChange={onChange} type="text" name="firstName" ></input>
-			</div>
-			{
-            	nameError ?
-                <span>{ nameError }</span> :
-                ''
-            }
-			<div className="form-group">
-				<label htmlFor="lastName" >Last Name:</label>
-				<input onChange={onChange} type="text" name="lastName" ></input>
-			</div>
-			{
-            	lastNameError ?
-                <span>{ lastNameError }</span> :
-                ''
-            }	
-			<div className="form-group">
-				<label htmlFor="email" >Email:</label>
-				<input onChange={onChange} type="text" name="email" ></input>
-			</div>
-			{
-            	emailError ?
-                <span>{ emailError }</span> :
-                ''
-            }	
-			<div className="form-group">
-				<label htmlFor="password" >Password:</label>
-				<input onChange={onChange} type="password" name="password" ></input>
-			</div>	
-			{
-            	passError ?
-                <span>{ passError }</span> :
-                ''
-            }
-			<div className="form-group">
-				<label htmlFor="confirmPassword" >Confirm Password:</label>
-				<input onChange={onChange} type="password" name="confirmPassword" ></input>
-			</div>	
-			{
-            	confirmPassError ?
-                <span>{ confirmPassError }</span> :
-                ''
-            }
-			{
-            	equalityCheck ?
-                <span>{ equalityCheck }</span> :
-                ''
-            }
-			<input type="submit" value="Create User"></input>
-		</form>	
+			<form className="form-element" onSubmit={createUser}>
+
+				<div className="form-group">
+					<label htmlFor="firstName" >First Name:</label>
+					<input onChange={onChange} type="text" name="firstName" ></input>
+				</div>
+				{
+					nameError ?
+						<span>{nameError}</span> :
+						''
+				}
+				<div className="form-group">
+					<label htmlFor="lastName" >Last Name:</label>
+					<input onChange={onChange} type="text" name="lastName" ></input>
+				</div>
+				{
+					lastNameError ?
+						<span>{lastNameError}</span> :
+						''
+				}
+				<div className="form-group">
+					<label htmlFor="email" >Email:</label>
+					<input onChange={onChange} type="text" name="email" ></input>
+				</div>
+				{
+					emailError ?
+						<span>{emailError}</span> :
+						''
+				}
+				<div className="form-group">
+					<label htmlFor="password" >Password:</label>
+					<input onChange={onChange} type="password" name="password" ></input>
+				</div>
+				{
+					passError ?
+						<span>{passError}</span> :
+						''
+				}
+				<div className="form-group">
+					<label htmlFor="confirmPassword" >Confirm Password:</label>
+					<input onChange={onChange} type="password" name="confirmPassword" ></input>
+				</div>
+				{
+					confirmPassError ?
+						<span>{confirmPassError}</span> :
+						''
+				}
+				{
+					equalityCheck ?
+						<span>{equalityCheck}</span> :
+						''
+				}
+				<input type="submit" value="Create User"></input>
+			</form>
 		</div>
-			
+
 	)
 }
 
